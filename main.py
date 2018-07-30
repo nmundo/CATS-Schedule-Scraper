@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import json
 
 inboundTimetable = {}
 outboundTimetable = {}
@@ -40,4 +41,8 @@ for row in outboundSchedule.find('tbody').find_all('tr'):
 print(inboundTimetable)
 print(outboundTimetable)
 
+with open('inbound.json', 'w') as fp:
+    json.dump(inboundTimetable, fp)
 
+with open('outbound.json', 'w') as fp:
+    json.dump(outboundTimetable, fp)
